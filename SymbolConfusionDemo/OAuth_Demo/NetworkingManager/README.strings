@@ -1,0 +1,33 @@
+/* 
+  README.strings
+  OAuth_Demo
+
+  Created by InnoeriOS1 on 2017/2/15.
+
+*/
+
+//1,TokenManager
+//token管理，当token过期处理
+//eg:
+//    NSDictionary *dict = @{@"client_id":self.username.text,
+//        @"client_secret":self.password.text,
+//        @"grant_type":@"client_credentials"};
+//    [[TokenManager sharedInstance]tokenWithUrl:@"" params:dict success:^(TokenInfo *token) {
+//        //success  TODO...
+//        
+//    } failure:^(NSError *error) {
+//        //failure TODO...
+//    }];
+//
+//2，NetWorkingManager
+//网络管理，配合TokenManager使用，网络请求判定token过期时，重新执行TokenManager
+//eg:
+//    //resultClass 传入class model 类 解析直接返回model数组  isProgress 是否显示加载视图（网络提示菊花）
+//    [NetWorkingManager postWithUrl:@"" param:nil resultClass:[TokenManager class] isProgress:YES tokenExpire:^{
+//        //token Expire TODO...
+//        //可以弹出登录框  或者 后台悄悄重新登录
+//    } success:^(NSArray *results) {
+//        //请求成功   ...
+//    } failure:^(NSError *error) {
+//        //失败...
+//    }];
